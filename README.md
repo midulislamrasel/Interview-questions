@@ -1,5 +1,17 @@
 ## JavaScript
 
+OOP-এর ফুল ফর্ম হলো Object-Oriented Programming। এটি একটি প্রোগ্রামিং প্যারাডাইম যা ডেটাকে অবজেক্ট হিসেবে মডেল করে এবং কোডকে পুনঃব্যবহারযোগ্য এবং মডুলার করে তুলতে সাহায্য করে। OOP-এর চারটি প্রধান বৈশিষ্ট্য হলো:
+
+* Encapsulation: ডেটা এবং ফাংশনগুলোকে একত্রে বাঁধাই করা, যাতে ডেটা সরাসরি অ্যাক্সেস না করা যায় এবং শুধুমাত্র নির্দিষ্ট পদ্ধতির মাধ্যমে ডেটা ম্যানিপুলেট করা যায়।
+
+* Inheritance: এক শ্রেণি (class) অন্য শ্রেণির বৈশিষ্ট্য ও পদ্ধতিগুলি উত্তরাধিকারসূত্রে প্রাপ্ত করে, কোড পুনঃব্যবহারের সুবিধা দেয়।
+
+* Polymorphism: একাধিক রূপে কোনো জিনিসের উপস্থিতি, যেখানে একই ফাংশন বা অপারেশন বিভিন্ন পরিস্থিতিতে বিভিন্নভাবে আচরণ করে।
+
+* Abstraction: জটিলতাগুলো লুকিয়ে রেখে শুধুমাত্র প্রয়োজনীয় বৈশিষ্ট্যগুলো দেখানো, যাতে ব্যবহারকারী অপ্রয়োজনীয় বিবরণ থেকে বিচ্ছিন্ন থাকে।
+
+
+
 #### JavaScript কী ?
 * উত্তর: JavaScript হলো একটি high-level, interpreted প্রোগ্রামিং ভাষা, যা সাধারণত ওয়েব ব্রাউজারগুলোতে ক্লায়েন্ট-সাইড স্ক্রিপ্টিং করার জন্য ব্যবহৃত হয়। এটি HTML এবং CSS এর সাথে ওয়েবপেজকে ডায়নামিক ও ইন্টারঅ্যাকটিভ করতে সাহায্য করে।
 
@@ -491,6 +503,254 @@ const numbers = [2, 4, 6, 8];
 const allEven = numbers.every(num => num % 2 === 0);
 console.log(allEven); // true
 ````
+
+
+
+
+## =====================================================================================================
+
+## PHP
+
+#### Encapsulation
+- Encapsulation হলো Object-Oriented Programming (OOP)-এর একটি গুরুত্বপূর্ণ নীতি। PHP-তে encapsulation বলতে ডেটা (যেমন ভ্যারিয়েবল) এবং ঐ ডেটার ওপর কার্যকরী মেথডগুলোকে একসাথে একটি ইউনিট বা ক্লাসে বেঁধে রাখা বোঝায়, যেখানে কিছু উপাদানের অ্যাক্সেস সীমিত রাখা হয়। এর ফলে অবজেক্টের অভ্যন্তরীণ অবস্থা সুরক্ষিত থাকে এবং এর ডেটা শুধুমাত্র নির্দিষ্ট মেথডের মাধ্যমে পরিবর্তন করা যায়।
+
+###### Access Modifiers:
+
+* public: প্রপার্টি বা মেথড যেকোনো জায়গা থেকে অ্যাক্সেস করা যায়, অর্থাৎ ক্লাসের ভিতরে বা বাইরে।
+* private: প্রপার্টি বা মেথড শুধুমাত্র ঐ ক্লাসের ভিতরে অ্যাক্সেস করা যায়।
+* protected: প্রপার্টি বা মেথড শুধুমাত্র ক্লাস এবং এর child class (উত্তরাধিকারী ক্লাস) এর ভিতর থেকে অ্যাক্সেস করা যায়।
+
+
+###### Getters এবং Setters:
+
+* Getters এবং setters হলো মেথড, যেগুলোর মাধ্যমে private বা protected প্রপার্টিগুলো ক্লাসের বাইরে থেকেও অ্যাক্সেস বা পরিবর্তন করা যায়। এর মাধ্যমে ডেটার উপরে নিয়ন্ত্রণ রাখা হয় এবং প্রয়োজনীয় যাচাই-বাছাই করা সম্ভব হয়।
+
+````php
+<?php
+class Product {
+    private $name;
+    private $price;
+
+    // Constructor দিয়ে ভ্যালু initialize করা
+    public function __construct($name, $price) {
+        $this->name = $name;
+        $this->price = $price;
+    }
+
+    // Name-এর getter
+    public function getName() {
+        return $this->name;
+    }
+
+    // Name-এর setter
+    public function setName($name) {
+        $this->name = $name;
+    }
+
+    // Price-এর getter
+    public function getPrice() {
+        return $this->price;
+    }
+
+    // Price-এর setter, যেখানে validation আছে
+    public function setPrice($price) {
+        if ($price > 0) {
+            $this->price = $price;
+        } else {
+            echo "মূল্য অবশ্যই পজিটিভ সংখ্যা হতে হবে!";
+        }
+    }
+}
+
+// Product ক্লাসের একটি অবজেক্ট তৈরি করা
+$product = new Product("Laptop", 1200);
+
+// Getter এবং Setter ব্যবহার করে প্রপার্টি অ্যাক্সেস ও পরিবর্তন করা
+echo $product->getName();  // আউটপুট: Laptop
+$product->setPrice(1500);  // মূল্যে পরিবর্তন করে 1500 করা হলো
+echo $product->getPrice(); // আউটপুট: 1500
+
+$product->setPrice(-500);  // আউটপুট: মূল্য অবশ্যই পজিটিভ সংখ্যা হতে হবে!
+?>
+````
+
+
+
+#### Inheritance
+* Inheritance হল Object-Oriented Programming (OOP)-এর একটি মৌলিক ধারণা, যা একটি ক্লাসকে অন্য একটি ক্লাসের বৈশিষ্ট্য ও আচরণ উত্তরাধিকারসূত্রে গ্রহণ করার অনুমতি দেয়। PHP-তে inheritance ব্যবহার করে, আপনি একটি ক্লাস থেকে অন্য ক্লাস তৈরি করতে পারেন যা পূর্বের ক্লাসের (parent class) প্রপার্টি ও মেথডগুলিকে ধার নিতে পারে। এইভাবে কোড পুনঃব্যবহার করা সহজ হয় এবং ক্লাসগুলোর মধ্যে সম্পর্ক স্থাপন করা যায়।
+
+
+* Parent Class: যেই ক্লাস থেকে অন্য ক্লাস বৈশিষ্ট্য ও আচরণ উত্তরাধিকারসূত্রে গ্রহণ করে, তাকে parent class বা base class বলা হয়।
+* Child Class: যেই ক্লাস parent class থেকে বৈশিষ্ট্য ও আচরণ গ্রহণ করে, তাকে child class বা derived class বলা হয়।
+
+````php
+<?php
+// Parent Class
+class Animal {
+    public $name;
+
+    // Constructor
+    public function __construct($name) {
+        $this->name = $name;
+    }
+
+    // Method
+    public function speak() {
+        return "I am an animal.";
+    }
+}
+
+// Child Class
+class Dog extends Animal {
+    // Overriding method
+    public function speak() {
+        return "Woof! I am a dog.";
+    }
+
+    // Additional method
+    public function fetch() {
+        return "Fetching the ball!";
+    }
+}
+
+// Creating an object of Dog class
+$dog = new Dog("Buddy");
+
+// Accessing properties and methods
+echo $dog->name;          // Output: Buddy
+echo $dog->speak();       // Output: Woof! I am a dog.
+echo $dog->fetch();       // Output: Fetching the ball!
+?>
+````
+
+
+#### Polymorphism
+Polymorphism হল Object-Oriented Programming (OOP)-এর একটি গুরুত্বপূর্ণ নীতি যা একই নামের মেথড বা অপারেটরকে বিভিন্ন ধরণের আর্গুমেন্ট বা অবজেক্টের সাথে বিভিন্নভাবে আচরণ করতে দেয়। এটি দুটি প্রধান ধরনের হয়ে থাকে:
+
+
+* Method Overloading (PHP তে প্রকৃতপক্ষে সমর্থিত নয়, কিন্তু ধারণাটি বোঝানো যেতে পারে): একই নামের একাধিক মেথড কিন্তু বিভিন্ন পরামিতি লিস্টের সাথে।
+* Method Overriding: একটি child class প্যারেন্ট ক্লাসের মেথডকে নতুনভাবে বাস্তবায়ন করা।
+
+###### Method Overloading (PHP তে সীমিত)
+* PHP তে মেথড ওভারলোডিং সরাসরি সমর্থিত নয়, কারণ PHP-তে একই নামের একাধিক মেথড তৈরি করা যায় না। তবে, আপনি প্যারামিটার সংখ্যা বা ধরন অনুযায়ী বিভিন্ন আচরণ তৈরির জন্য কন্ডিশনাল লজিক ব্যবহার করতে পারেন।
+
+###### Method Overriding (PHP তে সাধারণত ব্যবহৃত)
+* Method overriding এ child class প্যারেন্ট ক্লাসের মেথডকে পুনরায় সংজ্ঞায়িত করে নতুন আচরণ প্রদান করতে পারে।
+````php
+<?php
+// Parent Class
+class Shape {
+    public function draw() {
+        return "Drawing a shape.";
+    }
+}
+
+// Child Class
+class Circle extends Shape {
+    // Method Overriding
+    public function draw() {
+        return "Drawing a circle.";
+    }
+}
+
+// Another Child Class
+class Square extends Shape {
+    // Method Overriding
+    public function draw() {
+        return "Drawing a square.";
+    }
+}
+
+// Function to display shape drawing
+function displayDrawing(Shape $shape) {
+    echo $shape->draw();
+}
+
+// Creating objects
+$circle = new Circle();
+$square = new Square();
+
+// Using polymorphism
+displayDrawing($circle); // Output: Drawing a circle.
+displayDrawing($square); // Output: Drawing a square.
+?>
+````
+
+
+#### Abstraction
+* Abstraction হল Object-Oriented Programming (OOP)-এর একটি মূল নীতি যা জটিলতাকে লুকিয়ে রেখে শুধুমাত্র প্রয়োজনীয় বৈশিষ্ট্য ও আচরণ প্রকাশ করে। এটি মূলত ব্যবহারকারীদের জটিলতা বা অপ্রয়োজনীয় বিবরণ থেকে মুক্ত রেখে তাদের কেবল গুরুত্বপূর্ণ তথ্য প্রদান করে।
+
+
+###### Abstraction-এর মূল বৈশিষ্ট্য:
+* Abstract Classes: এমন ক্লাস যা সম্পূর্ণভাবে বাস্তবায়িত নয়, সাধারণত শুধুমাত্র কিছু অংশের বাস্তবায়ন থাকে এবং অন্য অংশগুলি সাবক্লাসগুলির দ্বারা বাস্তবায়িত হয়।
+* Abstract Methods: এসব মেথড কোনো বাস্তবায়ন প্রদান করে না; এগুলোর বাস্তবায়ন সাবক্লাসে প্রদান করা হয়।
+
+
+````php
+<?php
+// Abstract Class
+abstract class Vehicle {
+    // Abstract Method (does not have a body)
+    abstract public function start();
+
+    // Regular Method
+    public function stop() {
+        return "Stopping the vehicle.";
+    }
+}
+
+// Subclass (inheriting from Abstract Class)
+class Car extends Vehicle {
+    // Implementing the abstract method
+    public function start() {
+        return "Starting the car.";
+    }
+}
+
+// Another Subclass
+class Bike extends Vehicle {
+    // Implementing the abstract method
+    public function start() {
+        return "Starting the bike.";
+    }
+}
+
+// Creating objects of subclasses
+$car = new Car();
+$bike = new Bike();
+
+// Using the methods
+echo $car->start(); // Output: Starting the car.
+echo $car->stop();  // Output: Stopping the vehicle.
+
+echo $bike->start(); // Output: Starting the bike.
+echo $bike->stop();  // Output: Stopping the vehicle.
+?>
+````
+
+
+###### Abstract Class (Vehicle):
+
+* Abstract Method (start()): এটি কোনো বাস্তবায়ন প্রদান করে না; এটি সাবক্লাসে বাস্তবায়িত হতে হবে।
+* Regular Method (stop()): এটি একটি সম্পূর্ণভাবে বাস্তবায়িত মেথড যা সকল সাবক্লাসে ব্যবহার করা যেতে পারে।
+
+###### Subclasses (Car, Bike):
+* Abstract Method Implementation: Car এবং Bike ক্লাসগুলি Vehicle ক্লাসের start() মেথডকে বাস্তবায়িত করেছে।
+* Regular Method Usage: stop() মেথডটি Vehicle ক্লাস থেকে উত্তরাধিকারসূত্রে প্রাপ্ত এবং সাবক্লাসগুলিতে ব্যবহার করা হয়েছে।
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
