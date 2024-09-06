@@ -1,59 +1,12 @@
-### Components
-#### Step : 01
-```php
-php artisan make:component alert
-```
+## JavaScript
 
-#### Step:02
-any View Blade File
-
-```php
-<html>
-    <body>
-      <x-alert type="info" message="This is error messages"/>
-      <x-alert type="success" message="This is Success message Alert"/>
-    </body>
-</html>
-
-```
+#### JavaScript কী ?
+* উত্তর: JavaScript হলো একটি high-level, interpreted প্রোগ্রামিং ভাষা, যা সাধারণত ওয়েব ব্রাউজারগুলোতে ক্লায়েন্ট-সাইড স্ক্রিপ্টিং করার জন্য ব্যবহৃত হয়। এটি HTML এবং CSS এর সাথে ওয়েবপেজকে ডায়নামিক ও ইন্টারঅ্যাকটিভ করতে সাহায্য করে।
 
 
-#### Step: 03
-app/View/Components/alert.php
+#### JavaScript-এ ভ্যারিয়েবল ডিক্লেয়ার করার উপায় কী কী?
+* var: ES5-এর আগে ব্যবহার হত, function-scoped এবং রিডিক্লেয়ার করা যায়।
+* let: ES6-এ ইন্ট্রোডিউস করা হয়েছে, block-scoped এবং রিডিক্লেয়ার করা যায় না।
+* const: ES6-এ ইন্ট্রোডিউস করা হয়েছে, block-scoped, constant ভ্যারিয়েবল যা পরে পরিবর্তন করা যায় না।
 
-```php
-<div class="alert alert-{{$type}}" role="alert">
-    {{$message}}
-</div>
-``` 
-
-#### Step: 04
-view/components/alert.php
-```php
-class alert extends Component
-{
-    public $type;
-    public $message;
-    public function __construct(string $type, string $message)
-    {
-        $this->type = $type;
-        $this->message = $message;
-    }
-
-
-
-    public function render(): View|Closure|string
-    {
-        return view('components.alert');
-    }
-}
-```
-
-### or (NOT GOOD)
-##### view/components/alert.php
-type and message Blade file same name so shot hand
-```php
-public function __construct(public string $type, public string $message){
-
-}
-```
+** বিশ্লেষণ: ভ্যারিয়েবল ডিক্লেয়ার করার বিভিন্ন উপায় সম্পর্কে জ্ঞান পরীক্ষা করার জন্য এই প্রশ্নটি গুরুত্বপূর্ণ। এটি প্রমাণ করে আপনি ES6 ফিচার সম্পর্কে কতটা জানেন।
